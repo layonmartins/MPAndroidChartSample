@@ -3,6 +3,7 @@ package com.example.howtousempandroidchart
 import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.howtousempandroidchart.custom.MyMarkerView
 import com.github.mikephil.charting.animation.Easing
@@ -10,17 +11,21 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.YAxis
-import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.DataSet
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.LargeValueFormatter
-import com.github.mikephil.charting.formatter.ValueFormatter
+import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import com.github.mikephil.charting.utils.MPPointF
+import com.github.mikephil.charting.listener.ChartTouchListener
+import com.github.mikephil.charting.listener.OnChartGestureListener
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
+import com.github.mikephil.charting.listener.OnDrawListener
 
 
-class LineChart2Activity : AppCompatActivity() {
+class LineChart2Activity : AppCompatActivity(), OnChartGestureListener,
+    OnChartValueSelectedListener, OnDrawListener {
 
     private lateinit var lineChart: LineChart
     val TAG = "layon.f"
@@ -34,6 +39,7 @@ class LineChart2Activity : AppCompatActivity() {
 
         setData()
         setStyle()
+        setupInteractions()
     }
 
     // See the documentation of how setup data on charts https://weeklycoding.com/mpandroidchart-documentation/setting-data/
@@ -122,13 +128,11 @@ class LineChart2Activity : AppCompatActivity() {
     }
 
     private fun setStyle() {
-
-
         lineChart.apply {
 
             // setLogEnabled(boolean enabled): Setting this to true will activate chart logcat output.
             // Enabling this is bad for performance, keep disabled if not necessary.
-            isLogEnabled = true
+            isLogEnabled = false
 
             description = Description().also {
                 it.text = "Profit for 10 years"
@@ -147,7 +151,88 @@ class LineChart2Activity : AppCompatActivity() {
 
             invalidate()
         }
+    }
 
+    private fun setupInteractions() {
+        lineChart.apply {
+            setTouchEnabled(true)
+            isDragEnabled = true
+            setScaleEnabled(true)
+            //isScaleXEnabled = false // disable scale only on X axis
+            setPinchZoom(false)
+            isDoubleTapToZoomEnabled = true
+            isDragDecelerationEnabled = true
+            isHighlightPerDragEnabled = false
 
+            //setup listeners
+            setOnChartValueSelectedListener(this@LineChart2Activity)
+            onChartGestureListener = this@LineChart2Activity
+            setOnDrawListener(this@LineChart2Activity)
+
+            invalidate()
+        }
+    }
+
+    override fun onChartGestureStart(
+        me: MotionEvent?,
+        lastPerformedGesture: ChartTouchListener.ChartGesture?
+    ) {
+        Log.d(TAG, "onChartGestureStart(me: $me lastPerformedGesture: $lastPerformedGesture)")
+    }
+
+    override fun onChartGestureEnd(
+        me: MotionEvent?,
+        lastPerformedGesture: ChartTouchListener.ChartGesture?
+    ) {
+        Log.d(TAG, "onChartGestureEnd(me: $me lastPerformedGesture: $lastPerformedGesture)")
+    }
+
+    override fun onChartLongPressed(me: MotionEvent?) {
+        Log.d(TAG, "onChartLongPressed(me: $me)")
+    }
+
+    override fun onChartDoubleTapped(me: MotionEvent?) {
+        Log.d(TAG, "onChartDoubleTapped(me: $me)")
+    }
+
+    override fun onChartSingleTapped(me: MotionEvent?) {
+        Log.d(TAG, "onChartSingleTapped(me: $me)")
+    }
+
+    override fun onChartFling(
+        me1: MotionEvent?,
+        me2: MotionEvent?,
+        velocityX: Float,
+        velocityY: Float
+    ) {
+        Log.d(TAG, "onChartFling(me1: $me1 me2: $me2 velocityX: $velocityX velocityY: $velocityY)")
+    }
+
+    override fun onChartScale(me: MotionEvent?, scaleX: Float, scaleY: Float) {
+        Log.d(TAG, "onChartScale(me: $me scaleX: $scaleX scaleY: $scaleY)")
+    }
+
+    override fun onChartTranslate(me: MotionEvent?, dX: Float, dY: Float) {
+        Log.d(TAG, "onChartTranslate(me: $me dX: $dX dY: $dY)")
+    }
+
+    override fun onValueSelected(e: Entry?, h: Highlight?) {
+        Log.d(TAG, "onValueSelected(e: $e h: $h)")
+    }
+
+    override fun onNothingSelected() {
+        Log.d(TAG, "onNothingSelected()")
+    }
+
+    override fun onEntryAdded(entry: Entry?) {
+        Log.d(TAG, "onEntryAdded(entry: $entry)")
+    }
+
+    override fun onEntryMoved(entry: Entry?) {
+        Log.d(TAG, "onEntryMoved(entry: $entry)")
+    }
+
+    override fun onDrawFinished(dataSet: DataSet<*>?) {
+        Log.d(TAG, "onDrawFinished(dataSet: $dataSet)")
     }
 }

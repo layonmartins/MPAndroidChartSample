@@ -59,7 +59,7 @@
         android:padding="20dp"
         android:textAlignment="center"
         android:background="@color/item_background"
-        android:text="LineChart2"
+        android:text="LineChart2 - User interaction"
         android:layout_margin="20dp"
         android:textSize="18sp"
         android:textStyle="italic"
