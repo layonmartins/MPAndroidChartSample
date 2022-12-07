@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- A light Holo shade of blue. Equivalent to #ff33b5e5. -->
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <!-- A light Holo shade of gray. Equivalent to #33999999. -->
+    <color name="holo_gray_light">#33999999</color>
+    <!-- A light Holo shade of green. Equivalent to #ff99cc00. -->
+    <color name="holo_green_light">#ff99cc00</color>
+    <!-- A light Holo shade of red. Equivalent to #ffff4444. <-->
+    <color name="holo_red_light">#ffff4444</color>
+    <!-- A dark Holo shade of blue. Equivalent to #ff0099cc -->
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <!-- A dark Holo shade of green. Equivalent to #ff669900 -->
+    <color name="holo_green_dark">#ff669900</color>
+    <!-- A dark Holo shade of red. Equivalent to #ffcc0000 -->
+    <color name="holo_red_dark">#ffcc0000</color>
+    <!-- A Holo shade of purple. Equivalent to #ffaa66cc -->
+    <color name="holo_purple">#ffaa66cc</color>
+    <!-- A light Holo shade of orange. Equivalent to #ffffbb33. -->
+    <color name="holo_orange_light">#ffffbb33</color>
+    <!-- A dark Holo shade of orange. Equivalent to ffff8800. -->
+    <color name="holo_orange_dark">#ffff8800</color>
+    <!-- A really bright Holo shade of blue. Equivalent to #ff00ddff. -->
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <!-- A really bright Holo shade of gray. Equivalent to #33cccccc. -->
+    <color name="holo_gray_bright">#33CCCCCC</color>
+
+    <color name="item_background">#FBD086</color>
+</resources>
