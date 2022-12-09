@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="item_background">#683322</color>
+    <color name="item_line">#EF8300</color>
+    <color name="item_fill">#F9C48B</color>
 </resources>

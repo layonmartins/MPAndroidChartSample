@@ -11,10 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var chart1 : TextView
-    lateinit var chart2 : TextView
-    lateinit var chart3 : TextView
-    lateinit var chart4 : TextView
+    private lateinit var chart1 : TextView
+    private lateinit var chart2 : TextView
+    private lateinit var chart3 : TextView
+    private lateinit var chart4 : TextView
+    private lateinit var chart5 : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,14 @@ class MainActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
+        chart5 = findViewById<Button>(R.id.button5)
+        chart5.setOnClickListener {
+            Intent(this, LineChart3Activity::class.java).also {
+                startActivity(it)
+            }
+        }
+
     }
 
 

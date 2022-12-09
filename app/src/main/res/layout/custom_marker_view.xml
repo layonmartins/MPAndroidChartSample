@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="80dp"
-    android:layout_height="40dp"
-    android:background="@drawable/marker2"
+    android:layout_height="60dp"
+    android:background="@drawable/marker3"
     tools:ignore="Overdraw">
 
     <TextView
